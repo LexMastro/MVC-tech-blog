@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "Code Your First API With Node.js and Express",
+        "description": "In this tutorial series, we will start with an overview of REST principles and concepts. Then we will go on to create our own full-fledged API that runs on a Node.js Express server and connects to a MySQL database.",
+        "post_content": "If you've spent any amount of time with modern web development, you will have come across terms like REST and API. If you've have heard of these terms or work with APIs but don't have a complete understanding of how they work or how to build your own API, this series is for you. In this tutorial series, we will start with an overview of REST principles and concepts. Then we will go on to create our own full-fledged API that runs on a Node.js Express server and connects to a MySQL database. After finishing this series, you should feel confident building your own API or delving into the documentation of an existing API.",
+        "user_id": 1
+    },
+    {
+        "id": 2,
+        "title": "Learn Python",
+        "description": "Python is a powerful language that is easy to learn and excels at many different types of computing. Created with a simple, expressive syntax, Python doesn't have the gotchas and edge cases that make some other languages hard to learn.",
+        "post_content": "Whether you're new to programming or an experienced coder looking to learn new skills, this course is the perfect place to start. Instructor Derek Jenson will help you to learn to start coding with the Python language. You'll start with the very basics to lay a solid foundation for future learning. Then, you'll go deeper, learning more advanced ways of manipulating data with commonly used data structures. Later on, Derek will share some pointers with you about how to get data in and out of files and even store complex data structures in them. Finally, you'll learn about some of Python's powerful built-in networking features to write code that can talk to other computers on the internet.",
+        "user_id": 1
+    }
+]

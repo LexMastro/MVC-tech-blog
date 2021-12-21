@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Alexis_mastro",
+        "email": "mastroalexis@gmail.com",
+        "password": "fakepassword123"
+    },
+    {
+        "id": 2,
+        "name": "test_user",
+        "email": "test@test.com",
+        "password": "testpassword123"
+    }
+]
