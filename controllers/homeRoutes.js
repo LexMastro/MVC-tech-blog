@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
     try {
-        // Get all posts and JOIN with user data
+        // Get all comment and JOIN with user data
         const postData = await Post.findAll({
             include: [
                 {
@@ -55,7 +55,7 @@ router.get("/post/:id/edit", async (req, res) => {
 // Create post route
 router.get("/post/:id", async (req, res) => {
     let userId = req.session.user_id;
-    // Get post by id and JOIN wit user and comment data
+    // Get post by id and JOIN with user and comment data
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -89,7 +89,7 @@ router.get('/post/:id', async (req, res) => {
                 },
             ],
         });
-
+        console.log(postData)
         const post = postData.get({ plain: true });
 
         res.render('post', {
@@ -130,5 +130,35 @@ router.get('/login', (req, res) => {
 
     res.render('login');
 });
+
+//Able to add comments
+router.get('/review/:id', async (req, res) => {
+    console.log();
+    let userId = req.session.user_id;
+    // Get article by id and JOIN wit user and comment data
+    try {
+      const reviewData = await Review.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+          },
+          // Comment table JOIN with User to get username
+          { model: Comment, include: [{ model: User }] },
+        ],
+      });
+  
+      const reviews = reviewData.get({ plain: true });
+      console.log(reviews);
+  
+      res.render('comments', {
+        layout: 'beautyboard',
+        ...reviews,
+        logged_in: req.session.logged_in,
+        uid: userId,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;

@@ -1,13 +1,13 @@
 // Post request new comment
 const newCommentHandler = async (event) => {
     event.preventDefault();
-
+    console.log('event handler called')
     const newComment = document.querySelector("#comment").value;
     const postId = document.querySelector("#postId").value;
     console.log(newComment)
     if (newComment) {
         console.log(newComment)
-        const response = await fetch("/api/comment", {
+        const response = await fetch("/api/comments", {
             method: "POST",
             body: JSON.stringify({ newComment, postId }),
             headers: {
@@ -15,7 +15,9 @@ const newCommentHandler = async (event) => {
             },
         });
         if (response.ok) {
-            location.reload();
+            // console.log(response)
+            // console.log(JSON.stringify({ newComment, postId }))
+            // location.reload();
         } else {
             alert("Failed to add comment");
         }
@@ -73,7 +75,7 @@ const updateComment = async (event) => {
 
 // New comment event listener
 document
-    .querySelector(".new-comment")
+    .querySelector(".new-comment-form")
     .addEventListener("submit", newCommentHandler);
 
 // Delete comment event listener

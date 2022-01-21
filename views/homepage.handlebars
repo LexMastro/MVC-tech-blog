@@ -3,7 +3,7 @@
         <h2>Welcome, {{name}}!</h2>
     </div>
 </div>
-
+{{log posts}}
 {{#each posts as |post|}}
 <div id="dashboard-posts" class="row mb-4 post">
     <div class="col-md-5">
@@ -26,8 +26,11 @@
         </button>
     </div>
     <input type="hidden" id="postId" value="{{id}}" />
-    {{#if comments.length}}
-    {{#each comments as |comment|}}
+    {{log comment}}
+    {{log post}}
+    {{#if post.comment.length}}
+    <h1>We have comments</h1>
+    {{#each post.comment as |comment|}}
     <div class="align-items-center justify-content-center mb-2">
         <div class="comment-{{comment.id}}-text">
             <p class="mb-0 comment-{{comment.id}}-p">"{{comment.comment}}" </p>
@@ -51,7 +54,7 @@
                         <p class='modal-post-content'>{{post.post_content}}</p>
                         <p class='modal-user'>{{post.user.name}}</p>
                         <div class="w-full">
-                            <form class="form new-comment">
+                            <form class="form new-comment-form">
                                 <div>
                                     <label for="comment">Add a comment:</label>
                                     <input class="form-control mt-2" id="comment" type="text" name="comment" />
@@ -81,4 +84,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="/js/comment.js"></script>
     <script src="/js/dashboard.js"></script>
