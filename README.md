@@ -27,4 +27,4 @@ git clone git@github.com:LexMastro/MVC-tech-blog.git
 
 ## Examples
 
-![Image of Site](/Assets/siteImage.png)
+![Image of Site](./Assets/siteImage.png)
