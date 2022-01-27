@@ -43,7 +43,6 @@ User.init(
                 console.log(newUserData.email)
                 //console.log({newUserData});
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                console.log('aaa');
                 return newUserData;
             },
             beforeUpdate: async (updatedUserData) => {

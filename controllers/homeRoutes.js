@@ -132,12 +132,12 @@ router.get("/login", (req, res) => {
 });
 
 //Able to add comments
-router.get("/review/:id", async (req, res) => {
+router.get("/comment/:id", async (req, res) => {
   console.log();
   let userId = req.session.user_id;
   // Get article by id and JOIN wit user and comment data
   try {
-    const reviewData = await Review.findByPk(req.params.id, {
+    const commentData = await Comment.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -147,12 +147,12 @@ router.get("/review/:id", async (req, res) => {
       ],
     });
 
-    const reviews = reviewData.get({ plain: true });
-    console.log(reviews);
+    const comments = commentData.get({ plain: true });
+    console.log(comments);
 
     res.render("comments", {
       layout: "beautyboard",
-      ...reviews,
+      ...comments,
       logged_in: req.session.logged_in,
       uid: userId,
     });
